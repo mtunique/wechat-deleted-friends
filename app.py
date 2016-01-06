@@ -48,8 +48,9 @@ class SubmitHandler(BaseHandler):
     def get(self, *args, **kwargs):
         uid = self.get_current_user()
         OBJ = OBJ_MAP[uid]
-        # self.write('dasdas')
-        self.write(OBJ.second())
+        # self.write('dasdas\n\rdsada')
+        tmp = OBJ.second()
+        self.write(tmp)
         self.finish()
 
 class HomeHandler(BaseHandler):

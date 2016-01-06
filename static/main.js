@@ -27,7 +27,11 @@ $('#submit').click(function () {
         if(data.length = 0) {
             $('#title').text('哎呦喂,没有好友把你删除')
         }
-        $('#list').text(data);
+        if(data == 'bug') {
+            $('#title').text('尚未登录')
+        } else {
+            $('#list').text(data);
+        }
         $dialog.show();
     })
 });

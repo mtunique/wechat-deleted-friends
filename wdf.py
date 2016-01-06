@@ -49,8 +49,8 @@ class Wechat(object):
     def second(self):
 
 
-        while self.waitForLogin() != '200':
-            pass
+        if self.waitForLogin() != '200':
+            return 'bug'
 
 
         if not self.login():
