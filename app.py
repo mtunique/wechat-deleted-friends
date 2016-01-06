@@ -5,6 +5,7 @@ from tornado.httpserver import HTTPServer
 from tornado.ioloop import IOLoop
 from tornado.web import Application
 from tornado.options import define, options, parse_command_line
+from threading import Thread
 
 
 from tornado.web import authenticated, asynchronous
@@ -16,6 +17,7 @@ define('debug', default=False, help='if debug model')
 
 OBJ_MAP = {}
 
+RUNNING = set()
 
 class BaseHandler(tornado.web.RequestHandler):
     def __init__(self, application, request, **kwargs):
@@ -49,7 +51,12 @@ class SubmitHandler(BaseHandler):
         uid = self.get_current_user()
         OBJ = OBJ_MAP[uid]
         # self.write('dasdas\n\rdsada')
-        tmp = OBJ.second()
+        if uid in RUNNING:
+            tmp = 'bug2'
+        else:
+            RUNNING.add(uid)
+            tmp = OBJ.second()
+            RUNNING.remove(uid)
         self.write(tmp)
         self.finish()
 

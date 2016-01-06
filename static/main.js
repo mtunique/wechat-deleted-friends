@@ -19,11 +19,14 @@ $dialog.find('.weui_btn_dialog').on('click', function () {
 });
 
 $('#submit').click(function () {
-    $('#qr').hide();
+    //$('#qr').hide();
     $('#loading').text('正在计算 稍等片刻');
     $loadingToast.show();
     $.get('submit', function (data) {
         $loadingToast.hide();
+        if(data == 'bug2') {
+            return;
+        }
         if(data.length = 0) {
             $('#title').text('哎呦喂,没有好友把你删除')
         }

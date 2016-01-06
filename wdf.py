@@ -168,7 +168,10 @@ class Wechat(object):
             url = 'https://login.weixin.qq.com/cgi-bin/mmwebwx-bin/login?tip=%s&uuid=%s&_=%s' % (self.tip, self.uuid, int(time.time()))
 
             request = urllib2.Request(url = url)
-            response = urllib2.urlopen(request)
+            try:
+                response = urllib2.urlopen(request, timeout=3)
+            except Exception:
+                return '408'
             data = response.read()
 
             # print data
