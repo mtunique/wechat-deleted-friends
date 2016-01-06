@@ -1,0 +1,6 @@
+COOKIE_SECRET = "bZJc2sWbQLKos6GkHn/VB9oXwQt8S0R0kRvJ5/xJ89E="
+XSRF_COOKIES = False
+
+MONGODB_URI = 'mongodb://root:ff171016@104.236.92.55:27017/reedhub'
+REDIS_HOST = 'aliyun.mtunique.com'
+REDIS_PASSWD = 'ff171016'

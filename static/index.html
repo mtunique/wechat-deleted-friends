@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
+    <link rel="stylesheet" href="./weui.min.css"/>
+    <link rel="stylesheet" href="./main.css"/>
+</head>
+
+<body ontouchstart>
+<div class="page" align="center">
+    <div class="hd">
+        <h1 class="page_title">1.长按保存二维码</h1>
+        <h1 class="page_title">2.微信扫一扫选择相册中二维码 登录</h1>
+        <h1 class="page_title">3.返回该页面点击已登录</h1>
+    </div>
+
+    <img src="" id="qr" align="middle" style="padding-bottom: 30px;">
+
+    <div class="bd spacing">
+        <a class="weui_btn weui_btn_primary" id="submit">已登录</a>
+    </div>
+
+    <!--BEGIN toast-->
+    <div id="toast" hidden style="display: none;">
+        <div class="weui_mask_transparent"></div>
+        <div class="weui_toast">
+            <i class="weui_icon_toast"></i>
+            <p class="weui_toast_content">已完成</p>
+        </div>
+    </div>
+    <!--end toast-->
+
+    <!-- loading toast -->
+    <div id="loadingToast" class="weui_loading_toast" style="display:none;">
+        <div class="weui_mask_transparent"></div>
+        <div class="weui_toast">
+            <div class="weui_loading">
+                <div class="weui_loading_leaf weui_loading_leaf_0"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_1"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_2"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_3"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_4"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_5"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_6"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_7"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_8"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_9"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_10"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_11"></div>
+            </div>
+            <p class="weui_toast_content" id="loading">正在加载二维码</p>
+        </div>
+    </div>
+
+<div class="weui_dialog_alert" id="dialog" hidden >
+    <div class="weui_mask"></div>
+    <div class="weui_dialog">
+        <div class="weui_dialog_hd"><strong class="weui_dialog_title" id="title">卧槽这些好友把你删除了</strong></div>
+        <div class="weui_dialog_bd" id="list"></div>
+        <div class="weui_dialog_ft">
+            <a href="javascript:;" class="weui_btn_dialog primary">确定</a>
+        </div>
+    </div>
+</div>
+
+</div>
+
+    <script src="./main.js"></script>
+</body>
+</html>
