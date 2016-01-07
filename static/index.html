@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./main.css"/>
 </head>
 
-<body ontouchstart>
+<body>
 <div class="page" align="center">
     <div class="hd">
         <h1 class="page_title">1.长按保存二维码</h1>
@@ -21,17 +21,8 @@
 
     <div class="bd spacing">
         <a class="weui_btn weui_btn_primary" id="submit">已登录</a>
+        <a class="weui_btn weui_btn_primary" id="retry">二维码失效</a>
     </div>
-
-    <!--BEGIN toast-->
-    <div id="toast" hidden style="display: none;">
-        <div class="weui_mask_transparent"></div>
-        <div class="weui_toast">
-            <i class="weui_icon_toast"></i>
-            <p class="weui_toast_content">已完成</p>
-        </div>
-    </div>
-    <!--end toast-->
 
     <!-- loading toast -->
     <div id="loadingToast" class="weui_loading_toast" style="display:none;">
@@ -55,16 +46,16 @@
         </div>
     </div>
 
-<div class="weui_dialog_alert" id="dialog" hidden >
-    <div class="weui_mask"></div>
-    <div class="weui_dialog">
-        <div class="weui_dialog_hd"><strong class="weui_dialog_title" id="title">卧槽这些好友把你删除了</strong></div>
-        <div class="weui_dialog_bd" id="list"></div>
-        <div class="weui_dialog_ft">
-            <a href="javascript:;" class="weui_btn_dialog primary">确定</a>
+    <div class="weui_dialog_alert" id="dialog" hidden >
+        <div class="weui_mask"></div>
+        <div class="weui_dialog">
+            <div class="weui_dialog_hd"><strong class="weui_dialog_title" id="title">卧槽这些好友把你删除了</strong></div>
+            <div class="weui_dialog_bd" id="list"></div>
+            <div class="weui_dialog_ft">
+                <a href="javascript:;" class="weui_btn_dialog primary">确定</a>
+            </div>
         </div>
     </div>
-</div>
 
 </div>
 

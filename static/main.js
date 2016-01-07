@@ -39,4 +39,14 @@ $('#submit').click(function () {
     })
 });
 
+$('#retry').click(function () {
+    //$('#qr').hide();
+    $('#loading').text('正在加载二维码');
+    $loadingToast.show();
+    $.get('retry', function(data){
+        $('#qr').attr("src", data);
+        $loadingToast.hide();
+    });
+});
+
 getUUID();

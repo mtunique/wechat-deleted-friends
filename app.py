@@ -19,6 +19,7 @@ OBJ_MAP = {}
 
 RUNNING = set()
 
+
 class BaseHandler(tornado.web.RequestHandler):
     def __init__(self, application, request, **kwargs):
         super(BaseHandler, self).__init__(application, request, **kwargs)
@@ -29,6 +30,16 @@ class BaseHandler(tornado.web.RequestHandler):
     def get_current_user(self):
         return self.get_secure_cookie('uid')
 
+class RetryHandler(BaseHandler):
+    @asynchronous
+    @authenticated
+    def get(self, *args, **kwargs):
+        tmp_wechat = Wechat()
+        OBJ_MAP[tmp_wechat.uuid] = tmp_wechat
+
+        self.set_secure_cookie('uid', tmp_wechat.uuid)
+        self.write(tmp_wechat.showQRImage())
+        self.finish()
 
 class GetUUIDHandler(BaseHandler):
     @asynchronous
@@ -78,6 +89,9 @@ def main():
             [
                 # ('/api/articles/(?P<art_id>[a-zA-Z0-9_]+)?$',
                 #   ArticleHandler),
+                ('/retry',
+                 RetryHandler),
+
                 ('/submit',
                  SubmitHandler),
 
